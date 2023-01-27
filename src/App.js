@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { InfoContext } from "./InfoContext";
+import { contextApi } from "./context/contextApi";
+
 
 function App() {
+  const names = {name:"vasif", lastname:"mammadov"}
+  const [state, setState] = useState("...")
+  const [button, setButton] = useState("false")
+
+  
+
+const onSubmit = ()=> {
+setButton('true')
+}
+
+const handleChange = (e) => {
+setState(e.target.value)
+setButton(false)
+}
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <input placeholder="name"  name="name" onChange={handleChange}></input>
+    <button onClick={onSubmit} style={{height:"20px", width:"70px"}}  ></button>
+    <h1>{button ? (<a>{state}</a>):(<a>...</a>)} </h1>
+   <div>
+    <contextApi.Provider value={{names}}>
+    <InfoContext />
+    </contextApi.Provider> 
+    </div>
     </div>
   );
 }
