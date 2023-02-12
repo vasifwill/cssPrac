@@ -5,8 +5,10 @@ export const InfoContext = () => {
     const {names} = useContext(contextApi)
   return (
     <div>
-        <h1>Name {names.name}</h1>
-        <h2>LastName {names.lastname}</h2>
+    <div className='firstWord'>
+        <h1> Name: {names.name}</h1>
+        <h2>LastName: {names.lastname}</h2>
+    </div>
     </div>
   )
 }
