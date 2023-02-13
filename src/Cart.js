@@ -8,7 +8,7 @@ export const Cart = ({blog}) => {
     <div className='cartFirst'>
    {blog.map((item) => {
     return (
-        <ul >
+        <ul className='cartList'>
         <li key={item.id}>
         <h2>{item.topic}</h2>
         <h3>{item.description}</h3>

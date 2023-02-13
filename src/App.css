@@ -40,7 +40,7 @@
 
 .cartFirst{
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     position: relative;
     color: rgb(41, 12, 12);
     border-style: solid;
@@ -48,10 +48,21 @@
     justify-content: center;
 }
 
-.cartFirst.li{
-    flex-direction: row;
-    width: 100px;
+ul.cartList {
+    flex-direction: column;
+    list-style-type: none;
+    margin: 10px;
+    background-color: #e44c4c;
+    overflow: hidden;
+    width: 300px;
+
+  }
+
+ul.cartList:hover{
+    background-color: rgb(140, 190, 182);
+    padding: 20px;
 }
+
 .Home{
     color: brown;
     border-style: solid;
@@ -69,7 +80,7 @@
 ul {
     list-style-type: none;
     margin: 10px;
-    background-color: #e44c4c;
+    background-color: #2cccbc;
     overflow: hidden;
     width: 400px;
 
@@ -90,6 +101,59 @@ ul {
 
   li :link:hover{
     background-color: yellow;
+  }
+
+  .touch{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    color: blue;
+    margin-top: 20px;
+    border: solid black;
+    width: 500px;
+  }
+
+  .touch1{
+    border: solid black;
+    margin: 10px;
+    border-style: double;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+
+  }
+
+  .touch1 .toolTip{
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    margin-left: 20px;
+  
+    /* Position the tooltip */
+    position: absolute;
+    /* z-index: 1; */
+
+  }
+
+  .touch1:hover .toolTip{
+    visibility: visible;
+  }
+
+
+  .touch2{
+    border: solid black;
+    margin: 10px;
+    border-style: double;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+
   }
 
 

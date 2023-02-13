@@ -42,14 +42,12 @@ setButton(false)
   return (
     <>
     <div className="navigator">
-    <>
       <ul>
         <li><Link to='/'>Home</Link></li>
         <li><Link to="/css">CssPractise</Link></li>
         <li><Link to="/context">Context</Link></li>
         <li><Link to="/cart">Cart</Link></li>
       </ul>
-      </>
       </div>
     
     <div >
@@ -62,6 +60,10 @@ setButton(false)
     </Routes>
     </contextApi.Provider>
     </div>
+    
+      <div className="touch1">Hover me 1<span className="toolTip">This are we call pop up area size is 500x500. This is just show area. We will work on it in next month. This is demo version</span></div>
+      <div className="touch2">Hover me 2</div>
+  
     </>
   );
 }
