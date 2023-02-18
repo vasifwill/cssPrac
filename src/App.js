@@ -7,6 +7,8 @@ import { CssPrac } from "./cssPrac";
 import { Home } from "./Home";
 import { Cart } from "./Cart";
 import blog from "./data";
+import { ReduxCalculator } from "./ReduxCalculator";
+import { Form } from "./Form";
 
 
 function App() {
@@ -27,16 +29,36 @@ function App() {
 // }]
   const names = {name:"vasif", lastname:"mammadov"}
   const [state, setState] = useState({})
-  const [button, setButton] = useState("false")
+  const [button, setButton] = useState(false)
+  const [formButton, setFormButton] = useState(false)
+  const [form, setForm] =  useState({
+    firstName:"",
+    lastName:"",
+    email:"",
+    age:""
+  })
 const onSubmit = (e)=> {
 e.preventDefault()
-setButton('true')
+setButton(true)
 }
 
 const handleChange = (e) => {
   const {name, value} = e.target
 setState(state => ({...state,[name]:value}))
 setButton(false)
+}
+
+const handleFormSubmit = (e) => {
+e.preventDefault()
+setFormButton(true)
+}
+
+const handleForm = (e)=> {
+const {name, value} = e.target
+setForm(pre => ({...pre, [name]:value}))
+setFormButton(false)
+
+
 }
 
   return (
@@ -47,6 +69,8 @@ setButton(false)
         <li><Link to="/css">CssPractise</Link></li>
         <li><Link to="/context">Context</Link></li>
         <li><Link to="/cart">Cart</Link></li>
+        <li><Link to="/redux">Redux</Link></li>
+        <li><Link to="/form">Form</Link></li>
       </ul>
       </div>
     
@@ -57,6 +81,8 @@ setButton(false)
     <Route path="/css" element={<CssPrac />} />
     <Route path="/context" element={<InfoContext />}/>
     <Route path="/cart" element={<Cart blog={blog}/>} />
+    <Route path="/redux" element={<ReduxCalculator />} />
+    <Route path="/form" element={<Form  form={form} handleForm={handleForm} handleFormSubmit={handleFormSubmit} formButton={formButton}/>} />
     </Routes>
     </contextApi.Provider>
     </div>
