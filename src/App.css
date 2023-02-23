@@ -103,16 +103,16 @@ ul {
     background-color: yellow;
   }
 
-  /* .touch{
+  .touch{
     position: relative;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
     color: blue;
-    margin-top: 20px;
+    margin-top: 100px;
     border: solid black;
     width: 500px;
-  } */
+  }
 
   .touch1{
     border: solid black;

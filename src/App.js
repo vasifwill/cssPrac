@@ -7,7 +7,7 @@ import { CssPrac } from "./cssPrac";
 import { Home } from "./Home";
 import { Cart } from "./Cart";
 import blog from "./data";
-import { ReduxCalculator } from "./ReduxCalculator";
+import { Counter} from "./ReduxCalculator";
 import { Form } from "./Form";
 
 
@@ -81,14 +81,17 @@ setFormButton(false)
     <Route path="/css" element={<CssPrac />} />
     <Route path="/context" element={<InfoContext />}/>
     <Route path="/cart" element={<Cart blog={blog}/>} />
-    <Route path="/redux" element={<ReduxCalculator />} />
+    <Route path="/redux" element={<Counter />} />
     <Route path="/form" element={<Form  form={form} handleForm={handleForm} handleFormSubmit={handleFormSubmit} formButton={formButton}/>} />
     </Routes>
     </contextApi.Provider>
     </div>
+
+    <div className="touch">
     
       <div className="touch1">Hover me 1<span className="toolTip">This are we call pop up area size is 500x500. This is just show area. We will work on it in next month. This is demo version</span></div>
       <div className="touch2">Hover me 2</div>
+      </div>
   
     </>
   );
