@@ -5,7 +5,7 @@ const blog = [{
   },
 {
   id:'2',
-  topic:"work and life balace",
+  topic:"work and  balace",
 description:"I'm looking for a role that will leverage my expertise in software engineering and frontend development while allowing me the opportunity to be a part of building application or product from ground up."
 },
 {
