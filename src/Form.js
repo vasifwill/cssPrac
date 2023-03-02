@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Form = ({handleForm, form, formButton, handleFormSubmit}) => {
+export const Form = ({HandleForm, form, formButton, handleFormSubmit}) => {
 
 
 
@@ -9,13 +9,13 @@ export const Form = ({handleForm, form, formButton, handleFormSubmit}) => {
       <div className='format'>
         <form className='format-1' onSubmit={handleFormSubmit} >
         <label>First Name</label>
-          <input  onChange={handleForm} name="firstName"></input>
+          <input  onChange={HandleForm} name="firstName"></input>
           <label>Last Name</label>
-          <input onChange={handleForm} name="lastName"></input>
+          <input onChange={HandleForm} name="lastName"></input>
           <label>Email</label>
-          <input onChange={handleForm} name="email"></input>
+          <input onChange={HandleForm} name="email"></input>
           <label >Age</label>
-          <select onChange={handleForm} name="age">
+          <select onChange={HandleForm} name="age">
             <option value="11-17">11-17</option>
             <option value="18-25">18-25</option>
             <option value="25-35">25-35</option>

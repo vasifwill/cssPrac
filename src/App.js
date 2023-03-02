@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css"
 import { InfoContext } from "./InfoContext";
 import { contextApi } from "./context/contextApi";
@@ -9,28 +9,17 @@ import { Cart } from "./Cart";
 import blog from "./data";
 import { Counter} from "./ReduxCalculator";
 import { Form } from "./Form";
+import { Api } from "./Api";
+import axios from "axios";
 
 
 function App() {
-//   const blog = [{
-//     id:'1',
-//     topic:"health",
-//     description:"For past 3 years I’ve been working alongside developers team to help create and optimize web application. I have written software mostly in Javasicript /Typescript  but im also comfortable with java and python."
-//   },
-// {
-//   id:'2',
-//   topic:"work and life balace",
-// description:"I'm looking for a role that will leverage my expertise in software engineering and frontend development while allowing me the opportunity to be a part of building application or product from ground up."
-// },
-// {
-//   id:'3',
-//   topic:"world",
-//   description:"The reality is there is always a better coder than me Which he or she has more experience in this field. "
-// }]
   const names = {name:"vasif", lastname:"mammadov"}
   const [state, setState] = useState({})
   const [button, setButton] = useState(false)
   const [formButton, setFormButton] = useState(false)
+  const [apiName, setApiName] = useState()
+  const [apiSelect, setSelectApi] = useState('male')
   const [form, setForm] =  useState({
     firstName:"",
     lastName:"",
@@ -53,10 +42,27 @@ e.preventDefault()
 setFormButton(true)
 }
 
-const handleForm = (e)=> {
+const HandleForm = (e)=> {
 const {name, value} = e.target
 setForm(pre => ({...pre, [name]:value}))
 setFormButton(false)
+
+//Api Section
+//https://gorest.co.in/public/v1/users?gender=female
+
+const CallApi = () => {
+   axios.get(`https://gorest.co.in/public/v1/users?gender=${apiSelect}`).then(data => {
+    setApiName(data)
+    console.log(data)
+  }).catch(error => {
+    alert(error)
+  })
+}
+
+useEffect(() => {
+  CallApi()
+},[apiSelect])
+
 
 
 }
@@ -71,6 +77,7 @@ setFormButton(false)
         <li><Link to="/cart">Cart</Link></li>
         <li><Link to="/redux">Redux</Link></li>
         <li><Link to="/form">Form</Link></li>
+        <li><Link to="/api">Api</Link></li>
       </ul>
       </div>
     
@@ -82,7 +89,8 @@ setFormButton(false)
     <Route path="/context" element={<InfoContext />}/>
     <Route path="/cart" element={<Cart blog={blog}/>} />
     <Route path="/redux" element={<Counter />} />
-    <Route path="/form" element={<Form  form={form} handleForm={handleForm} handleFormSubmit={handleFormSubmit} formButton={formButton}/>} />
+    <Route path="/form" element={<Form  form={form} HandleForm={HandleForm} handleFormSubmit={handleFormSubmit} formButton={formButton}/>} />
+    <Route path="/api" element={<Api setSelectApi={setSelectApi} apiName={apiName}  />} />
     </Routes>
     </contextApi.Provider>
     </div>
