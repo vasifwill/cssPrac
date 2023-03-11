@@ -124,7 +124,7 @@ function App() {
  
 //   const handleChange =  (e) => {
 //     const inputs = e.target.value
-// setState(inputs)
+// setState(inputs). 
  
 //   }
  
