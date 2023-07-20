@@ -11,6 +11,8 @@ import { Counter} from "./ReduxCalculator";
 import { Form } from "./Form";
 // import { Api } from "./Api";
 import axios from "axios";
+import { SearchShow } from "./SearchShow";
+import { Playlist } from "./Playlist";
 
 
 function App() {
@@ -82,7 +84,8 @@ function App() {
         <li><Link to="/cart">Cart</Link></li>
         <li><Link to="/redux">Redux</Link></li>
         <li><Link to="/form">Form</Link></li>
-        {/* <li><Link to="/api">Api</Link></li> */}
+        <li><Link to="/searchshow">SerachShow</Link></li>
+        <li><Link to="/playlist">Playlist</Link></li>
       </ul>
       </div>
     
@@ -95,6 +98,8 @@ function App() {
     <Route path="/cart" element={<Cart blog={blog}/>} />
     <Route path="/redux" element={<Counter />} />
     <Route path="/form" element={<Form  form={form} HandleForm={HandleForm} handleFormSubmit={handleFormSubmit} formButton={formButton}/>} />
+    <Route path="/searchshow" element={<SearchShow/>}></Route>
+    <Route path="/playlist" element={<Playlist />}></Route>
     {/* <Route path="/api" element={<Api setSelectApi={setSelectApi} apiName={apiName}  />} /> */}
     </Routes>
     </contextApi.Provider>

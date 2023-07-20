@@ -1,0 +1,38 @@
+.playlist{
+    padding:10px;
+    border: solid 1px black !important;
+}
+
+.playlist-container{
+    /* border: solid 1px black !important; */
+    max-width: 400px !important;  
+    display: flex !important;
+    flex-direction: row; 
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.playlist-container span{
+    padding: 5px ;
+    width: 300px;
+    
+    
+}
+
+.playlist-container__track{
+    color: rgb(20, 20, 1);
+    border: solid 1px red;
+}
+
+.playlist-container__track:hover{
+    cursor: pointer;
+    border: solid 1px rgb(37, 6, 211);
+}
+
+.playlist-buttons{
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    
+}
+
