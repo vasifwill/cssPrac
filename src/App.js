@@ -50,28 +50,6 @@ function App() {
     setForm(pre => ({...pre, [name]:value}))
     setFormButton(false)
 
-    //Api Section
-    //https://gorest.co.in/public/v1/users?gender=female
-
-    // const useCallApi =  () => {
-    //   setApiButton(true)
-    //   const res =  axios.get(`https://gorest.co.in/public/v1/users?gender=female`)
-    //   console.log(res)
-    //   setApiName(res.data.data[1])
-    // }
-
-
-
-    // .then(data => {
-    //   setApiName(data)
-    //   console.log(data)
-    // }).catch(error => {
-    //   alert(error)
-    // })
-
-    // useEffect(() => {
-    //   CallApi()
-    // },[apiSelect])
 }
 
   return (
@@ -100,7 +78,6 @@ function App() {
     <Route path="/form" element={<Form  form={form} HandleForm={HandleForm} handleFormSubmit={handleFormSubmit} formButton={formButton}/>} />
     <Route path="/searchshow" element={<SearchShow/>}></Route>
     <Route path="/playlist" element={<Playlist />}></Route>
-    {/* <Route path="/api" element={<Api setSelectApi={setSelectApi} apiName={apiName}  />} /> */}
     </Routes>
     </contextApi.Provider>
     </div>

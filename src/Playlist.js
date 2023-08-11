@@ -51,9 +51,6 @@ export const Playlist = () => {
         setPlayButton(e => !e)
        
     }
-
-    
-
   return (
     <div className='playlist'>
     {data.map(item => 
@@ -61,12 +58,9 @@ export const Playlist = () => {
             <span style={item.id == `${songName}`?{'border': 'solid 1px red'}:{'border': 'none'}}>{item.name} --- {item.artist}</span>
         </div>
     )}
-
     <div className='playlist-buttons'>
     <BiSkipPreviousCircle size={45} onClick={handlePrevious}/>
     {playButton ? <BiPlayCircle  size={45} onClick={handlePlayButton}/>:<BiPauseCircle size={45} onClick={handlePlayButton}/>}
-    
-    
     <BiSkipNextCircle size={45} onClick={handleForwards}/>
     </div>
         
