@@ -9,8 +9,10 @@ EXAMPLE:https://api.thedogapi.com/v1/images/search?limit=10&breed_ids=1&api_key=
 
 export const DogsBreed = () => {
   const [selected, setSelected] = useState('')
-  const [data, setData] = useState('')
+  const [images, setimages] = useState()
   const [breedInfo, setBreedInfo] = useState()
+  const [currentIndex, setCurrentIndex] = useState(0)
+
 
   const selection  = [
     {
@@ -57,18 +59,33 @@ export const DogsBreed = () => {
 
   const handleSelections = (e) => {
     setSelected(e.target.value)
-    console.log(data)
     console.log("this is " + selected)
+    // setCurrentIndex(0)
   }
 
   const handleApi = () => {
-    fetch(`https://api.thedogapi.com/v1/images/search?limit=10&breed_ids=${selected}&api_key=live_rhd4NmGkA1tFoe8F3np5qId3nuC81OnMKMLf33eBs78Y54kAvedRNxIMH0Darxck`).then((res) => res.json()).then((data) => {
-      setData(data[0].url)
-      console.log(data[0].breeds[0].bred_for)
+    setCurrentIndex(0)
+    fetch(`https://api.thedogapi.com/v1/images/search?limit=5&breed_ids=${selected}&api_key=live_rhd4NmGkA1tFoe8F3np5qId3nuC81OnMKMLf33eBs78Y54kAvedRNxIMH0Darxck`).then((res) => res.json()).then((data) => {
+      const imagesUrl = data.map(item => item.url)
+      setimages(imagesUrl)
       const breedInformation = {breedFor:data[0].breeds[0].bred_for,lifeSpan:data[0].breeds[0].life_span,temperament:data[0].breeds[0].temperament,origin:data[0].breeds[0].origin}
       setBreedInfo(breedInformation)
     }).catch((err) => console.log(err))
 
+    
+
+  }
+
+
+  const handleNext = () => {
+    setCurrentIndex(prev => 
+      prev === images.length - 1 ? prev= 0: prev+1
+    )
+
+  }
+  const handlePrevious = () => {
+    setCurrentIndex(prev =>
+      prev === 0 ? prev= images.length-1: prev -1)
   }
   return (
     <>
@@ -82,8 +99,13 @@ export const DogsBreed = () => {
           </select>
           <button onClick={handleApi}>Press for show</button>
         </div>
+        <div className='images-content'>
         <div>
-        {data && <img  src={data} alt='breed' className='imgBreed'/> }
+        <button onClick={handleNext}>Next</button>
+        <button onClick={handlePrevious}>Previous</button>
+        </div>
+        {images && <img  src={images[currentIndex]} alt='breed' className='imgBreed'/> }
+        {images && <p>{currentIndex}/{images.length}</p>}
         </div>
         <div className='info-content'>
           {breedInfo && <>
