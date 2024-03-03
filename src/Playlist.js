@@ -31,7 +31,6 @@ export const Playlist = () => {
     const[playButton, setPlayButton] = useState(true)
 
     const handleForwards = () =>{
-
         if(songName < data.length){
             setSongName((e => e+1))
         }else{

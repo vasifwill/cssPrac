@@ -15,6 +15,7 @@ import axios from "axios";
 import { SearchShow } from "./SearchShow";
 import { Playlist } from "./Playlist";
 import { DogsBreed } from "./DogsBreed";
+import { VisualData } from "./VisualData";
 
 
 function App() {
@@ -68,6 +69,7 @@ function App() {
         <li><Link to="/playlist">Playlist</Link></li>
         <li> <Link to="/userform">Userform</Link></li>
         <li><Link to="/dogsbreed">Dogs breed</Link></li>
+        <li><Link to="/visualdata">Visual-Data</Link></li>
       </ul>
       </div>
     
@@ -84,6 +86,7 @@ function App() {
     <Route path="/playlist" element={<Playlist />}></Route>
     <Route path="/userform" element={<UserForm />}></Route>
     <Route path="/dogsbreed" element={<DogsBreed />}></Route>
+    <Route path="/visualdata" element={<VisualData />}></Route>
     </Routes>
     </contextApi.Provider>
     </div>
