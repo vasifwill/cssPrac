@@ -16,12 +16,12 @@ export const VisualData = () => {
 
   //scale
   const xScale = d3.scaleLinear()
-  .domain([0, data.length - 1])
+  .domain([0, data.length-1])
   .range([0, 400]);
 
   const yScale = d3.scaleLinear()
-  .domain([0, 90])
-  .range([0, 100]);
+  .domain([0, 100])
+  .range([100, 0]);
 
   // adding scadeline
    const generateScaledLine = d3.line()
@@ -29,15 +29,7 @@ export const VisualData = () => {
    .y(yScale)
    .curve(d3.curveCardinal)
 
-//setting axes
-svg.selectAll('.line')
-.data([data])
-.join('path')
-.attr('d', d => generateScaledLine(d))
-.attr('fill', 'none')
-.attr('stroke', 'black')
-
-// setting axes side numbers
+   // setting axes side numbers
 const xAxis =d3.axisBottom(xScale)
 .ticks(data.length)
 .tickFormat(i => i+1)
@@ -47,10 +39,20 @@ const yAxis =d3.axisLeft(yScale)
 
 svg.append('g')
 .call(xAxis)
-.attr('transform', `'translate(0, ${100})`)
+.attr('transform', `translate(0, ${100})`)
 
 svg.append('g')
 .call(yAxis)
+
+//setting axes
+svg.selectAll('.line')
+.data([data])
+.join('path')
+.attr('d', d => generateScaledLine(d))
+.attr('fill', 'none')
+.attr('stroke', 'red')
+
+
 
   }, [data])
   
